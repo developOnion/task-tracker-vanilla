@@ -1,0 +1,123 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    padding: 32px 16px;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#main {
+    background-color: #f4f4f4;
+    min-width: 407px;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 32px;
+    border-radius: 16px;
+    border: 2px solid #000;
+}
+
+.task-tracker {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 4px 4px 4px 8px;
+    border-radius: 8px;
+    background-color: white;
+    border: 2px solid #000;
+}
+
+.task-form__input {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    width: 100%;
+    height: 34px;
+}
+
+.task-form__input:focus {
+    outline: none;
+}
+
+.task-form__submitBtn {
+    border: none;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    padding: 4px;
+
+    svg {
+        fill: white;
+    }
+}
+
+.task-tracker__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    max-width: 100%;
+}
+
+.task-item__checkbox {
+    appearance: none;
+    border: 2px solid #000;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+}
+
+.task-item__checkbox:checked {
+    background-color: lightgray;
+}
+
+.task-item__checkbox:checked + .task-item__text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.task-item__text {
+    margin: 0 16px;
+}
+
+.task-item__deleteBtn {
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+}

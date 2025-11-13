@@ -4,15 +4,30 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Task Tracker</title>
-        <script src="/app.js" defer></script>
+        <link rel="stylesheet" href="/styles.css" />
+        <script type="module" src="/app.js" defer></script>
     </head>
     <body>
-        <template id="task-tracker-input">
+        <main id="main">
+            <header>
+                <h1 id="title">Task Tracker</h1>
+            </header>
+        </main>
+
+        <template id="task-tracker-page-template">
+            <section class="task-tracker">
+                <ul class="task-tracker__list"></ul>
+            </section>
+        </template>
+
+        <template id="task-tracker-input-template">
             <form class="task-form">
                 <input
                     type="text"
                     class="task-form__input"
+                    name="taskText"
                     placeholder="Enter a new task"
+                    maxlength="100"
                     required
                 />
                 <button type="submit" class="task-form__submitBtn">
@@ -31,7 +46,7 @@
             </form>
         </template>
 
-        <template id="task-tracker-task">
+        <template id="task-tracker-task-template">
             <li class="task-item">
                 <input type="checkbox" class="task-item__checkbox" />
                 <span class="task-item__text"></span>
