@@ -1,7 +1,7 @@
 # Task Tracker
 
 A simple task tracking application.
-[Project Website](https://smey-task-tracker-vanilla.pages.dev/)
+[project URL](https://smey-task-tracker-vanilla.pages.dev/)
 
 ## Features
 
