@@ -37,10 +37,6 @@ export default class TaskTrackerPage extends HTMLElement {
         this.setFormBindings(this.root.querySelector("form"));
 
         window.addEventListener("tasklistupdate", () => {
-            const taskListContainer = this.root.querySelector(
-                ".task-tracker__list"
-            );
-            taskListContainer.innerHTML = "";
             this.render();
         });
         this.render();
@@ -66,7 +62,6 @@ export default class TaskTrackerPage extends HTMLElement {
     setFormBindings(form) {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            alert(`Adding task: ${this.#input.taskText}`);
             addTask(this.#input.taskText);
             this.#input.taskText = "";
         });
