@@ -3,22 +3,29 @@
 A simple task tracking application.
 [Project Website](https://smey-task-tracker-vanilla.pages.dev/)
 
-## Features
+## 💡 Features
 
 -   Add, edit, and delete tasks
 -   Mark tasks as complete
 -   View task list
 
-## Technologies Used
+## 🛠️ Technologies
 
--   HTML, CSS, JavaScript
--   LocalStorage
+-   Vanilla JavaScript (ES6+)
+-   HTML5
+-   CSS3
+-   Local Storage
 
-## License
+## 🎯 Learning Objectives
 
-This is an educational project built to learn and practice:
+This project demonstrates:
 
--   Vanilla JavaScript (no frameworks)
--   Browser LocalStorage API
--   Custom web components
--   ES6 modules
+-   Building interactive UIs with vanilla JavaScript
+-   Implementing CRUD operations
+-   Working with browser storage APIs
+-   Creating modular, maintainable code
+-   DOM manipulation and event handling
+
+## 📝 License
+
+This is an educational project for learning purposes. suggestions and improvements are welcome!
