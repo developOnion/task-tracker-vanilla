@@ -70,7 +70,6 @@ export default class TaskTrackerPage extends HTMLElement {
             set(target, prop, value) {
                 target[prop] = value;
                 form.elements[prop].value = value;
-                console.log(`Input updated: ${prop} = ${value}`);
 
                 return true;
             },
