@@ -1,3 +1,5 @@
+import { addTask } from "../services/TaskListManager.js";
+
 export default class TaskTrackerPage extends HTMLElement {
     #input = {
         taskText: "",
@@ -12,7 +14,6 @@ export default class TaskTrackerPage extends HTMLElement {
         async function loadCSS() {
             const response = await fetch("/styles.css");
             const css = await response.text();
-            console.log("Loaded CSS:", css);
             styles.textContent = css;
         }
         loadCSS();
@@ -22,6 +23,18 @@ export default class TaskTrackerPage extends HTMLElement {
         const template = document.getElementById("task-tracker-page-template");
         const content = template.content.cloneNode(true);
         this.root.appendChild(content);
+
+        const inputComponent = document.createElement("task-tracker-input");
+        const taskListContainer = this.root.querySelector(
+            ".task-tracker__list"
+        );
+
+        taskListContainer.parentElement.insertBefore(
+            inputComponent,
+            taskListContainer
+        );
+
+        this.setFormBindings(this.root.querySelector("form"));
 
         window.addEventListener("tasklistupdate", () => {
             const taskListContainer = this.root.querySelector(
@@ -34,15 +47,11 @@ export default class TaskTrackerPage extends HTMLElement {
     }
 
     render() {
-        const inputComponent = document.createElement("task-tracker-input");
         const taskListContainer = this.root.querySelector(
             ".task-tracker__list"
         );
 
-        taskListContainer.parentElement.insertBefore(
-            inputComponent,
-            taskListContainer
-        );
+        taskListContainer.innerHTML = "";
 
         if (app.taskList.list.length) {
             app.taskList.list.forEach((task) => {
@@ -52,14 +61,13 @@ export default class TaskTrackerPage extends HTMLElement {
                 taskListContainer.appendChild(taskComponent);
             });
         }
-
-        this.setFormBindings(this.root.querySelector("form"));
     }
 
     setFormBindings(form) {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            alert(`New task submitted: ${this.#input.taskText}`);
+            alert(`Adding task: ${this.#input.taskText}`);
+            addTask(this.#input.taskText);
             this.#input.taskText = "";
         });
 

@@ -1,5 +1,5 @@
 const TaskList = {
-    list: [],
+    list: [], // { text: "Sample Task", completed: false }
 };
 
 const proxiedTaskList = new Proxy(TaskList, {
